@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="77dp" android:background="@drawable/activity_listitem_bk" android:paddingLeft="50dp">
+    <LinearLayout android:layout_gravity="center_vertical" android:layout_width="20dp" android:layout_height="15dp">
+	    <ImageView android:id="@+id/activity_playSongIcon" android:contentDescription="@string/img"
+	        android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/activity_flag"/>
+    </LinearLayout>
+    <TextView android:id="@+id/activity_songName" android:layout_gravity="center_vertical" android:textSize="21sp"
+        android:layout_width="320dp" android:layout_height="wrap_content" android:layout_marginLeft="8dp"/>
+    <TextView android:id="@+id/activity_songTimer" android:layout_gravity="center_vertical" android:textSize="14sp"
+        android:layout_width="44dp" android:layout_height="wrap_content" android:layout_marginLeft="8dp"/>
+</LinearLayout>

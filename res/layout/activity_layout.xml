@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    
+    <!-- 背景 -->
+	<ImageView android:src="@drawable/activity_bk" android:contentDescription="@string/bk"
+	    android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="top"/>
+	
+	<!-- 关闭 -->
+	<Button android:id="@+id/acitivy_finish" android:layout_width="97dp" android:layout_height="42dp"
+	    android:background="@drawable/activity_back"
+	    android:layout_gravity="top|right" android:onClick="onClick" />
+	
+	<!-- 音量、模式和列表按钮 -->
+	<LinearLayout android:orientation="horizontal"
+	    android:layout_width="502dp" android:layout_height="48dp" android:layout_marginTop="50dp"
+	    android:layout_gravity="center_horizontal" android:gravity="center_vertical">
+	    <!-- 模式按钮 -->
+	    
+	    <FrameLayout android:layout_width="40dp" android:layout_height="40dp">
+	        <!-- 音量打开 -->
+	        <Button android:id="@+id/activity_volumnenable" android:layout_width="match_parent" android:layout_height="match_parent"
+	        	android:background="@drawable/window_volumeenable" android:visibility="visible" android:onClick="onClick"/>
+	        <!-- 静音 -->
+	        <Button android:id="@+id/activity_volumnsilent" android:background="@drawable/window_volumesilent"
+	            android:layout_width="match_parent" android:layout_height="match_parent" 
+	            android:visibility="invisible"  android:onClick="onClick"/>
+	    </FrameLayout>
+
+	    <!-- 音量调节 -->
+	   	<SeekBar android:id="@+id/activity_volumnSeekBar" android:layout_gravity="center"
+	        android:layout_width="353dp" android:layout_height="wrap_content" android:layout_marginLeft="8dp"
+	        android:progressDrawable="@drawable/activity_progressdrawable" android:thumb="@drawable/activity_thumb"
+	        android:thumbOffset="23dp" android:paddingLeft="23dp" android:paddingRight="23dp"
+	        android:minHeight="5dp" android:maxHeight="5dp"/>
+	    
+	   	<!-- 模式调节 -->
+	    <FrameLayout android:layout_width="34dp" android:layout_height="33dp">
+	        <!-- 随机 -->
+	        <Button android:id="@+id/activity_randomMode" android:background="@drawable/activity_random"
+	            android:layout_width="match_parent" android:layout_height="match_parent" 
+	            android:visibility="invisible" android:onClick="onClick"/>
+	        <!-- 单曲循环 -->
+	        <Button android:id="@+id/activity_singleCircularMode" android:background="@drawable/activity_singlecircular"
+	            android:layout_width="match_parent" android:layout_height="match_parent" 
+	            android:visibility="invisible"  android:onClick="onClick"/>
+	        <!-- 循环 -->
+	        <Button android:id="@+id/activity_circularMode" android:background="@drawable/activity_circular"
+	            android:layout_width="match_parent" android:layout_height="match_parent" 
+	            android:visibility="invisible"  android:onClick="onClick"/>
+	        <!-- 顺序 -->
+	        <Button android:id="@+id/activity_seriateMode" android:background="@drawable/activity_seriate"
+	            android:layout_width="match_parent" android:layout_height="match_parent" 
+	            android:visibility="visible"  android:onClick="onClick"/>
+	    </FrameLayout>
+	    <!-- 列表按钮 -->
+	    <Button android:id="@+id/activity_listShow" android:background="@drawable/activity_listshow" android:visibility="invisible"
+	        android:layout_width="48dp" android:layout_height="48dp" android:layout_marginLeft="24dp" android:onClick="onClick"/>
+	</LinearLayout>
+	<!-- 歌曲信息和歌词 -->
+	<LinearLayout android:orientation="vertical" android:gravity="center_horizontal"
+	    android:layout_width="762dp" android:layout_height="531dp"
+	    android:layout_marginLeft="0dp" android:layout_marginTop="105dp">
+		<!-- 歌曲信息 -->
+		<LinearLayout android:orientation="vertical"
+		    android:layout_width="480dp" android:layout_height="130dp">
+	        <!-- 歌名 -->
+			<com.readboy.MyMp3.MarqueeForeverTextView android:id="@+id/activity_title" 
+			    android:layout_width="match_parent" android:layout_height="wrap_content"
+			    android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:ellipsize="marquee" 
+			    android:textColor="#FFFFFFFF" android:textSize="24sp"
+			    android:gravity="center|center_vertical"/>
+			<!-- 歌唱家 -->
+			<TextView android:id="@+id/activity_artist" android:singleLine="true"
+			    android:textColor="#FFFFFFFF" android:textSize="20sp" 
+			    android:layout_width="match_parent" android:layout_height="wrap_content"
+			    android:layout_marginTop="8dp"
+			    android:gravity="center|center_vertical"/>
+			<!-- 专辑等信息 -->
+			<TextView android:id="@+id/activity_songInfo" android:textColor="#FFFFFFFF" android:textSize="16sp" 
+			    android:layout_width="match_parent" android:layout_height="wrap_content" 
+			    android:layout_marginTop="8dp"
+			    android:gravity="center|center_vertical"/>
+		</LinearLayout>
+		<!-- 歌词 -->
+		<LinearLayout android:orientation="vertical" 
+		    android:layout_width="480dp" android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+			<TextView android:id="@+id/activity_lyricFirst" android:singleLine="true"
+			    android:textColor="#FFFFFFFF" android:textSize="20sp" 
+			    android:layout_width="match_parent" android:layout_height="wrap_content"
+			    android:layout_marginTop="5dp" android:gravity="center"/>
+			<com.readboy.MyMp3.MarqueeForeverTextView android:id="@+id/activity_lyricCurrent" 
+			    android:layout_marginTop="5dp" android:gravity="center"  
+			    android:layout_width="match_parent" android:layout_height="wrap_content" 
+			    android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:ellipsize="marquee" 
+			    android:textColor="#FF00FF00" android:textSize="24sp"/>
+			<TextView android:id="@+id/activity_lyricLast" android:singleLine="true"
+			    android:textColor="#FFFFFFFF" android:textSize="20sp"
+			    android:layout_width="match_parent" android:layout_height="wrap_content"
+			    android:layout_marginTop="5dp" android:gravity="center"/>
+		</LinearLayout>
+	</LinearLayout>
+	<!-- 进度控制条和播放时间 -->
+	<LinearLayout android:orientation="horizontal" android:layout_marginTop="637dp"
+	    android:layout_width="match_parent" android:layout_height="46dp"
+	    android:gravity="center_horizontal">
+	    <TextView android:id="@+id/activity_currentTimer" android:singleLine="true" android:textColor="#FFFFFFFF"
+	        android:textSize="12sp" android:textStyle="bold" android:gravity="right|center_vertical"
+	        android:layout_width="128dp" android:layout_height="match_parent" android:layout_marginLeft="6dp"/>
+	    <SeekBar android:id="@+id/activity_seekBar" android:layout_gravity="center"
+	        android:layout_width="986dp" android:layout_height="wrap_content" android:layout_marginLeft="8dp"
+	        android:progressDrawable="@drawable/activity_progressdrawable" android:thumb="@drawable/activity_thumb"
+	        android:thumbOffset="23dp" android:paddingLeft="23dp" android:paddingRight="23dp"
+	        android:minHeight="5dp" android:maxHeight="5dp"/>
+	    <TextView android:id="@+id/activity_totalTimer" android:singleLine="true" android:textColor="#FFFFFFFF" 
+	        android:textSize="12sp" android:textStyle="bold" android:gravity="left|center_vertical"
+	        android:layout_width="128dp" android:layout_height="match_parent"
+	        android:layout_marginLeft="8dp" android:layout_marginRight="6dp"/>
+	</LinearLayout>
+	<!-- 播放控制按钮 -->
+	<LinearLayout android:orientation="horizontal"
+	    android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="689dp"
+	    android:layout_gravity="center_horizontal">
+	    <Button android:id="@+id/activity_previous" android:background="@drawable/activity_previous"
+	        android:layout_width="85dp" android:layout_height="85dp" 
+	        android:layout_gravity="center_vertical" android:onClick="onClick"/>
+	    <FrameLayout android:layout_width="100dp" android:layout_height="100dp" 
+	        android:layout_marginLeft="27dp" android:layout_marginRight="27dp" android:layout_gravity="center_vertical">
+		    <Button android:id="@+id/activity_pause" android:background="@drawable/activity_pause" 
+		        android:layout_width="match_parent" android:layout_height="match_parent"
+		        android:visibility="invisible" android:onClick="onClick"/>
+		    <Button android:id="@+id/activity_play" android:background="@drawable/activity_play"
+		        android:layout_width="match_parent" android:layout_height="match_parent"
+		        android:visibility="visible" android:onClick="onClick"/>
+	    </FrameLayout>
+	    <Button android:id="@+id/activity_next" android:background="@drawable/activity_next"
+	        android:layout_width="85dp" android:layout_height="85dp" 
+	        android:layout_gravity="center_vertical" android:onClick="onClick"/>
+	</LinearLayout>
+	<!-- 歌曲列表 -->
+	<FrameLayout android:id="@+id/activity_songListLayout" 
+	    android:layout_width="518dp" android:layout_height="533dp" android:layout_gravity="right" android:layout_marginTop="103dp">
+	    <!-- 列表背景 -->
+	    <ImageView android:background="@drawable/activity_list_bk" android:contentDescription="@string/bk" android:visibility="invisible"
+	    	android:layout_width="match_parent" android:layout_height="match_parent"/>
+	    <!-- 关闭按钮 -->
+	    <Button android:id="@+id/activity_closeList" android:background="@drawable/activity_closelist" android:visibility="gone"
+	        android:layout_width="38dp" android:layout_height="38dp"
+	        android:layout_marginLeft="380dp" android:layout_marginTop="27dp" android:onClick="onClick"/>
+	    <!-- 列表 -->
+	    <ListView android:id="@+id/activity_songList" android:divider="@null"
+	        android:layout_width="match_parent" android:layout_height="455dp"/>
+	    <!-- 删除和刷新按钮 -->
+	    <RelativeLayout android:orientation="horizontal" 
+	        android:layout_width="match_parent" android:layout_height="50dp"
+	        android:layout_gravity="bottom"
+	        android:gravity="center_vertical">
+		    
+			<!-- 混响模式控制按钮 -->
+			<FrameLayout android:layout_width="58dp" android:layout_height="30dp" android:layout_marginLeft="60dp" android:layout_marginTop="1dp" >
+				    <Button android:id="@+id/activity_liveMode" android:background="@drawable/activity_live" 
+					    android:layout_width="match_parent" android:layout_height="match_parent"
+					    android:visibility="invisible" android:onClick="onClick"/>
+		    		<Button android:id="@+id/activity_rockMode" android:background="@drawable/activity_rock" 
+			        	android:layout_width="match_parent" android:layout_height="match_parent"
+			       	 	android:visibility="invisible" android:onClick="onClick"/>
+				    <Button android:id="@+id/activity_popMode" android:background="@drawable/activity_pop" 
+					    android:layout_width="match_parent" android:layout_height="match_parent"
+					    android:visibility="invisible" android:onClick="onClick"/>
+				    <Button android:id="@+id/activity_jazzMode" android:background="@drawable/activity_jazz" 
+					    android:layout_width="match_parent" android:layout_height="match_parent"
+					    android:visibility="invisible" android:onClick="onClick"/>
+				    <Button android:id="@+id/activity_classicalMode" android:background="@drawable/activity_classical" 
+					    android:layout_width="match_parent" android:layout_height="match_parent"
+					    android:visibility="invisible" android:onClick="onClick"/>
+				    <Button android:id="@+id/activity_standardMode" android:background="@drawable/activity_standard" 
+					    android:layout_width="match_parent" android:layout_height="match_parent"
+					    android:visibility="visible" android:onClick="onClick"/>
+			</FrameLayout>
+	        
+		    
+		    <Button android:id="@+id/activity_delete" android:background="@drawable/activity_delete"
+		        android:layout_width="50dp" android:layout_height="match_parent" android:onClick="onClick"
+		        android:layout_alignParentRight="true" android:layout_marginRight="50dp" android:layout_centerVertical="true"/>
+		    
+		    <Button android:id="@+id/activity_refresh" android:background="@drawable/activity_refresh"
+		        android:layout_width="50dp" android:layout_height="match_parent" 
+		        android:layout_marginRight="47dp" android:onClick="onClick"
+		        android:layout_toLeftOf="@id/activity_delete"/>
+	    </RelativeLayout>
+	</FrameLayout>
+</FrameLayout>

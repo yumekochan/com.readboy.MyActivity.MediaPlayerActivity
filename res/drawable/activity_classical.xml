@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- 关闭按钮按下时背景图片 -->
+	<item android:state_pressed="true" android:drawable="@drawable/activity_ys_gd2"/>
+	<!-- 关闭按钮正常时背景图片 -->
+	<item android:state_pressed="false" android:drawable="@drawable/activity_ys_gd1"/>
+</selector>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <!-- 背景图 -->
+    <ImageView android:id="@+id/widget_bk" android:src="@drawable/widget_large_background" android:contentDescription="@string/bk"
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="211dp" 
+        android:layout_gravity="center" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="76dp" android:orientation="horizontal">
+			<!-- 专辑图片 -->
+			<ImageView android:id="@+id/widget_albumImage" android:background="@drawable/widget_singer_logo"
+			    android:layout_width="54dp" android:layout_height="54dp"
+			    android:layout_marginLeft="27dp" android:layout_marginTop="16dp" 
+			    android:contentDescription="@string/bk"/>
+			<LinearLayout android:layout_width="105dp" android:layout_height="match_parent"
+			    android:layout_marginLeft="14dp" android:orientation="vertical">
+			    <!-- 歌曲名 -->
+				<TextView android:id="@+id/widget_SongName" android:gravity="center"  
+				    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp"
+				    android:singleLine="true" android:focusable="true" android:focusableInTouchMode="true"
+			    	android:ellipsize="marquee" android:marqueeRepeatLimit="marquee_forever"
+				    android:textSize="20sp" android:textColor="#FF000000"> <requestFocus /> </TextView>
+				<!-- 歌手名 -->
+				<TextView android:id="@+id/widget_Singer" android:gravity="center" android:singleLine="true"
+				    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3dp"
+				    android:textSize="16sp" android:textColor="#FF000000"/>
+				<!-- 播放进度 -->
+				<ProgressBar android:id="@+id/widget_ProgressBar" style="@android:style/Widget.ProgressBar.Horizontal"
+				    android:max="100" android:progress="60"
+				    android:layout_width="105dp" android:layout_height="3dp" android:layout_marginTop="7dp"/>
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout android:layout_width="match_parent" android:layout_height="44dp" 
+		    android:layout_marginTop="4dp" android:orientation="horizontal">
+			<!-- 上一曲 -->
+		    <Button android:id="@+id/widget_Previous" android:background="@drawable/widget_previous"
+		        android:layout_width="35dp" android:layout_height="35dp" android:layout_marginLeft="55dp"/>
+		    <FrameLayout android:layout_width="35dp" android:layout_height="35dp" android:layout_marginLeft="10dp">
+		        <!-- 暂停 -->
+			    <Button android:id="@+id/widget_Pause" android:background="@drawable/widget_pause" 
+			        android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="invisible"/>
+			    <!-- 播放 -->
+			    <Button android:id="@+id/widget_Play" android:background="@drawable/widget_play"
+			        android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="visible"/>
+			</FrameLayout>
+			<!-- 下一曲 -->
+		    <Button android:id="@+id/widget_Next" android:background="@drawable/widget_next"
+		        android:layout_width="35dp" android:layout_height="35dp" android:layout_marginLeft="10dp"/>
+		</LinearLayout>
+		<LinearLayout android:layout_width="173dp" android:layout_height="60dp" 
+		    android:layout_marginLeft="27dp" android:layout_marginTop="8dp" 
+		    android:orientation="vertical">
+		    <!-- 歌词显示 -->
+		    <TextView android:id="@+id/widget_lyric" android:gravity="center"
+		        android:layout_width="match_parent" android:layout_height="match_parent" 
+		        android:textColor="#FF000000" android:textSize="18sp"/>
+		</LinearLayout>
+	</LinearLayout>
+</FrameLayout>

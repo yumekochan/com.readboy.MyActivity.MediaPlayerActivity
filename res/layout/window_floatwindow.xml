@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="430dp" android:layout_height="483dp">
+	<!-- 背景 -->
+    <ImageView android:src="@drawable/window_bk" android:contentDescription="@string/bk"
+	    android:layout_width="match_parent" android:layout_height="match_parent"/>
+	<!-- 音量 -->
+	<LinearLayout android:layout_width="match_parent" android:layout_height="55dp" android:orientation="horizontal">
+	    <!-- 音量和静音按钮 -->
+	    <FrameLayout android:layout_width="63dp" android:layout_height="match_parent" android:layout_marginLeft="31dp">
+	        <Button android:id="@+id/window_volumeSilent" android:background="@drawable/window_volumesilent"
+	            android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="invisible"/>
+	        <Button android:id="@+id/window_volumeEnable" android:background="@drawable/window_volumeenable"
+	            android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="visible"/>
+	    </FrameLayout>
+	    <SeekBar android:id="@+id/window_volumnSeekBar" android:minHeight="14dp" android:maxHeight="14dp"
+	        android:layout_width="272dp" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:layout_marginLeft="20dp"
+	        android:progressDrawable="@drawable/window_volumeprogress" android:thumb="@drawable/window_volumethumb"
+	        android:thumbOffset="0dp" android:paddingLeft="0dp" android:paddingRight="0dp"/>
+	</LinearLayout>
+	<!-- 歌曲列表 -->
+	<ListView android:id="@+id/window_songList" 
+	    android:divider="#FF888888" android:dividerHeight="1dp"
+	    android:layout_width="428dp" android:layout_height="322dp"
+	    android:layout_marginLeft="1dp" android:layout_marginTop="56dp"/>
+	<!-- 歌曲进度控制条 -->
+	<LinearLayout android:orientation="vertical" 
+	    android:layout_width="412dp" android:layout_height="32dp" 
+	    android:layout_marginLeft="10dp" android:layout_marginTop="378dp">
+	    <SeekBar android:id="@+id/window_playSeekBar" 
+	        android:layout_width="match_parent" android:layout_height="17dp"
+	        android:progressDrawable="@drawable/window_playprogress" 
+	        android:thumb="@drawable/window_playseekbarthumb" android:thumbOffset="9dp" 
+	        android:paddingLeft="9dp" android:paddingRight="9dp"
+	        android:minHeight="3dp" android:maxHeight="3dp"/>
+	    <RelativeLayout android:orientation="horizontal" 
+	        android:layout_width="match_parent" android:layout_height="15dp">
+	        <!-- 当前时间 -->
+	        <TextView android:id="@+id/window_currentTime" android:layout_alignParentLeft="true"
+	            android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	            android:textColor="#FF1079D1" android:textSize="14sp"/>
+	        <!-- 总时间 -->
+	        <TextView android:id="@+id/window_totalTime" android:layout_alignParentRight="true"
+	            android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	            android:textColor="#FFFFFFFF" android:textSize="12sp"/>
+	    </RelativeLayout>
+	</LinearLayout>
+	<!-- 播放按钮 -->
+	<LinearLayout android:orientation="horizontal"
+	    android:layout_width="284dp" android:layout_height="69dp" 
+	    android:layout_marginLeft="73dp" android:layout_marginTop="413dp">
+	    <!-- 上一曲 -->
+	    <Button android:id="@+id/window_previous" android:background="@drawable/window_previous"
+    	    android:layout_width="78dp" android:layout_height="match_parent"/>
+	    <!-- 暂停和播放按钮 -->
+	    <FrameLayout android:layout_width="78dp" android:layout_height="match_parent" android:layout_marginLeft="25dp">
+	        <Button android:id="@+id/window_pause" android:background="@drawable/window_pause"
+	            android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="invisible"/>
+	        <Button android:id="@+id/window_play" android:background="@drawable/window_play"
+	            android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="visible"/>
+	    </FrameLayout>
+	    <!-- 下一曲 -->
+	    <Button android:id="@+id/window_next" android:background="@drawable/window_next"
+    	    android:layout_width="78dp" android:layout_height="match_parent" android:layout_marginLeft="25dp"/>
+	</LinearLayout>
+</FrameLayout>

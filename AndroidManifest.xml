@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.readboy.MyMp3" android:versionCode="1" android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="15"/>
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+    <application android:name="com.readboy.MyMp3.MediaPlayerApplication" android:icon="@drawable/ic_launcher" android:label="@string/app_name">
+        
+        <activity android:name="com.readboy.MyActivity.MediaPlayerActivity" 
+            android:label="@string/app_name" 
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="audio/mp3"/>
+            </intent-filter>
+        </activity>
+        
+        <receiver android:name=".MediaPlayerReceiver">
+            <intent-filter>
+                <action android:name="com.readboy.MyMp3.ACTION_TIMER"/>
+                <action android:name="com.readboy.MyMp3.ACTION_PLAYCOMPLETION"/>
+                <action android:name="com.readboy.MyMp3.ACTION_DYNAMICLOADSHOW"/>
+                <action android:name="com.readboy.MyMp3.ACTION_DELETEDEAL"/>
+                <action android:name="com.readboy.MyMp3.ACTION_REFRESHDEAL"/>
+                <action android:name="android.intent.action.MEDIA_REMOVED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+<!--         
+        <receiver android:name="com.readboy.MyWidget.MediaPlayerAppWidgetProvider">
+            <intent-filter>
+	            <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_APPWIDGET_UPDATE"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_PREVIOUS"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_PLAY"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_PAUSE"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_NEXT"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_TIMER"/>
+	            <action android:name="com.readboy.MyMp3.ACTION_PLAYCOMPLETION"/>
+	            <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+	        </intent-filter>
+	        <meta-data android:name="android.appwidget.provider"
+	            android:resource="@xml/appwidget_provider_info"/>
+        </receiver>
+ -->        
+        <service android:name="com.readboy.rbminimp3.rbMiniMp3">
+            <intent-filter>
+                <action android:name="com.readboy.rbminimp3"/>
+            </intent-filter>
+        </service>
+        
+    </application>
+
+</manifest>
