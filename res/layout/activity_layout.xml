@@ -152,12 +152,13 @@
 	        android:layout_width="match_parent" android:layout_height="455dp"/>
 	    <!-- 删除和刷新按钮 -->
 	    <RelativeLayout android:orientation="horizontal" 
-	        android:layout_width="match_parent" android:layout_height="50dp"
-	        android:layout_gravity="bottom"
-	        android:gravity="center_vertical">
+	        android:layout_width="match_parent" android:layout_height="75dp"
+	        android:layout_gravity="bottom">
 		    
 			<!-- 混响模式控制按钮 -->
-			<FrameLayout android:layout_width="58dp" android:layout_height="30dp" android:layout_marginLeft="60dp" android:layout_marginTop="1dp" >
+			<FrameLayout android:id="@+id/frameEffect" 
+			    android:layout_width="52dp" android:layout_height="26dp" android:layout_marginLeft="110dp" android:layout_marginTop="1dp"
+			    android:layout_centerVertical="true" >
 				    <Button android:id="@+id/activity_liveMode" android:background="@drawable/activity_live" 
 					    android:layout_width="match_parent" android:layout_height="match_parent"
 					    android:visibility="invisible" android:onClick="onClick"/>
@@ -177,16 +178,19 @@
 					    android:layout_width="match_parent" android:layout_height="match_parent"
 					    android:visibility="visible" android:onClick="onClick"/>
 			</FrameLayout>
-	        
-		    
-		    <Button android:id="@+id/activity_delete" android:background="@drawable/activity_delete"
-		        android:layout_width="50dp" android:layout_height="match_parent" android:onClick="onClick"
-		        android:layout_alignParentRight="true" android:layout_marginRight="50dp" android:layout_centerVertical="true"/>
-		    
+			  
 		    <Button android:id="@+id/activity_refresh" android:background="@drawable/activity_refresh"
-		        android:layout_width="50dp" android:layout_height="match_parent" 
-		        android:layout_marginRight="47dp" android:onClick="onClick"
-		        android:layout_toLeftOf="@id/activity_delete"/>
+		        android:layout_width="55dp" android:layout_height="55dp" 
+		         android:onClick="onClick"
+		         android:layout_marginLeft="150dp"
+		         android:layout_centerVertical="true"
+		        android:layout_toRightOf="@id/frameEffect"/>
+	        
+		    <Button android:id="@+id/activity_delete" android:background="@drawable/activity_delete"
+		        android:layout_width="55dp" android:layout_height="55dp" android:onClick="onClick"
+		         android:layout_centerVertical="true"
+		         android:layout_marginLeft="50dp"
+		        android:layout_toRightOf="@id/activity_refresh"/>
 	    </RelativeLayout>
 	</FrameLayout>
 </FrameLayout>

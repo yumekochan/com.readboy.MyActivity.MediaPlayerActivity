@@ -117,7 +117,7 @@ public class MediaPlayerActivity extends Activity implements OnReceiverBroadcast
     	
         /****************************去掉标题栏，全屏窗口*********** ***********************/
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(0x80000000, 0x80000000);
+        getWindow().setFlags(0x02000000, 0x02000000);
         
         /*****布局*****/
         setContentView(R.layout.activity_layout);
@@ -161,29 +161,6 @@ public class MediaPlayerActivity extends Activity implements OnReceiverBroadcast
     	songList = (ListView)findViewById(R.id.activity_songList); //歌曲列表
     	delete = (Button)findViewById(R.id.activity_delete); //删除歌曲
     	refresh = (Button)findViewById(R.id.activity_refresh); //刷新歌曲列表
-    	
-    	/*****设置按钮侦听*****/    	
-/*    	random.setOnClickListener(this);
-    	singleCircular.setOnClickListener(this);
-    	circular.setOnClickListener(this);
-    	seriate.setOnClickListener(this);
-    	listShow.setOnClickListener(this);
-  	
-    	previous.setOnClickListener(this);
-    	pause.setOnClickListener(this);
-    	play.setOnClickListener(this);
-    	next.setOnClickListener(this);
-    	
-    	rock.setOnClickListener(this);
-    	live.setOnClickListener(this);
-    	pop.setOnClickListener(this);
-    	jazz.setOnClickListener(this);
-    	classical.setOnClickListener(this);
-    	standard.setOnClickListener(this);
-
-    	closeList.setOnClickListener(this);
-    	delete.setOnClickListener(this);
-    	refresh.setOnClickListener(this);*/
     	
     	songListLayout.setOnTouchListener(new OnTouchListener() {
 			public boolean onTouch(View v, MotionEvent event) {
